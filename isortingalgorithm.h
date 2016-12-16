@@ -8,10 +8,10 @@ class ISortingAlgorithm
 {
 public:
     // types
-    typedef unsigned long long SortingElement_t;
+    typedef unsigned long long ArrayElement_t;
     typedef unsigned long long ArraySize_t;
     //methods
-    ISortingAlgorithm();
+    ISortingAlgorithm(std::string a_szAlgorithmName);
     virtual ~ISortingAlgorithm();
     virtual void sort() = 0;
 
@@ -25,13 +25,13 @@ protected:
     // methods
     bool isSorted();
     // variables
-    std::string m_szAlgorithmName;
+    const std::string m_szAlgorithmName;
     ArraySize_t m_uArraySize;
-    SortingElement_t* m_auArray;
+    ArrayElement_t* m_auArray;
     // random
     std::random_device m_randomDevice;
     std::mt19937 m_randomNumberEngine;
-    std::uniform_int_distribution<SortingElement_t> m_uniformDistribution;
+    std::uniform_int_distribution<ArrayElement_t> m_uniformDistribution;
 };
 
 #endif // ISORTINGALGORITHM_H

@@ -2,11 +2,12 @@
 #include <iostream>
 #include <typeinfo>
 
-ISortingAlgorithm::ISortingAlgorithm():
+ISortingAlgorithm::ISortingAlgorithm(std::__cxx11::string a_szAlgorithmName):
     m_uArraySize(0u),
     m_auArray(nullptr),
     m_randomNumberEngine(std::random_device()()),
-    m_uniformDistribution()
+    m_uniformDistribution(),
+    m_szAlgorithmName(a_szAlgorithmName)
 {
 
 }
@@ -20,7 +21,7 @@ bool ISortingAlgorithm::createRandomArray(const ArraySize_t a_uSize)
 {
     bool fRetVal = false;
 
-    m_auArray = new SortingElement_t[a_uSize];
+    m_auArray = new ArrayElement_t[a_uSize];
 
     if(nullptr != m_auArray)
     {
@@ -39,7 +40,7 @@ bool ISortingAlgorithm::createSortedArray(const ArraySize_t a_uSize)
 {
     bool fRetVal = false;
 
-    m_auArray = new SortingElement_t[a_uSize];
+    m_auArray = new ArrayElement_t[a_uSize];
 
     if(nullptr != m_auArray)
     {
@@ -58,7 +59,7 @@ bool ISortingAlgorithm::createReversedArray(const ArraySize_t a_uSize)
 {
     bool fRetVal = false;
 
-    m_auArray = new SortingElement_t[a_uSize];
+    m_auArray = new ArrayElement_t[a_uSize];
 
     if(nullptr != m_auArray)
     {

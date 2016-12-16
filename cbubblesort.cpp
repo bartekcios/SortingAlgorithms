@@ -1,14 +1,11 @@
 #include "cbubblesort.h"
 
-CBubbleSort::CBubbleSort()
-{
-    m_szAlgorithmName = __func__;
-}
+CBubbleSort::CBubbleSort():
+    ISortingAlgorithm(__func__)
+{}
 
 CBubbleSort::~CBubbleSort()
-{
-
-}
+{}
 
 void CBubbleSort::sort()
 {

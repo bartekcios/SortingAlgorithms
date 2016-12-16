@@ -4,26 +4,24 @@
 using namespace std;
 
 CMergeSort::CMergeSort():
+    ISortingAlgorithm(__func__),
     m_auTempArray(nullptr)
-{
-    m_szAlgorithmName = __func__;
-}
+{}
 
 CMergeSort::~CMergeSort()
-{
-}
+{}
 
 void CMergeSort::sort()
 {
     if(nullptr != m_auArray)
     {
-        m_auTempArray = new SortingElement_t[m_uArraySize];
+        m_auTempArray = new ArrayElement_t[m_uArraySize];
         if(nullptr != m_auTempArray)
         {
-            memset(m_auTempArray, 0u, sizeof(SortingElement_t)*m_uArraySize);
+            memset(m_auTempArray, 0u, sizeof(ArrayElement_t)*m_uArraySize);
             sortRoutine(0u, m_uArraySize-1u);
 
-            memcpy(m_auArray, m_auTempArray, sizeof(SortingElement_t)*m_uArraySize);
+            memcpy(m_auArray, m_auTempArray, sizeof(ArrayElement_t)*m_uArraySize);
         }
     }
 }
@@ -52,7 +50,8 @@ void CMergeSort::sortRoutine(const ISortingAlgorithm::ArraySize_t a_uFirstElemen
         // subarrays sorted, time to sort this one !
         sortCurrentArray(a_uFirstElementIndex, a_uLastElementIndex, uLeftSubarrayLastIndex, uRightSubarrayFirstIndex);
 
-        copyTempToOriginalArray(uLeftSubarrayFirstIndex, uRightSubarrayLastIndex);
+        // copy only part of temp to original array
+        std::copy(&m_auTempArray[uLeftSubarrayFirstIndex], &m_auTempArray[uRightSubarrayLastIndex+1u], &m_auArray[uLeftSubarrayFirstIndex]);
     }
 }
 
@@ -92,14 +91,5 @@ void CMergeSort::sortCurrentArray(const ISortingAlgorithm::ArraySize_t a_uFirstE
             ++uRightSubarrayIndex;
         }
         ++uCurrentTempArrayIndex;
-    }
-}
-
-void CMergeSort::copyTempToOriginalArray(const ISortingAlgorithm::ArraySize_t a_uFirstElementIndex, const ISortingAlgorithm::ArraySize_t a_uLastElementIndex)
-{
-    // copy temp to original array
-    for(ArraySize_t uIterator=a_uFirstElementIndex; uIterator<=a_uLastElementIndex; ++uIterator)
-    {
-        m_auArray[uIterator] = m_auTempArray[uIterator];
     }
 }

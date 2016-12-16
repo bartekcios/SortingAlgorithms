@@ -1,14 +1,11 @@
 #include "cquicksort.h"
 
-CQuickSort::CQuickSort()
-{
-    m_szAlgorithmName = __func__;
-}
+CQuickSort::CQuickSort():
+    ISortingAlgorithm(__func__)
+{}
 
 CQuickSort::~CQuickSort()
-{
-
-}
+{}
 
 void CQuickSort::sort()
 {

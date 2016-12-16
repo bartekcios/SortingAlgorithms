@@ -14,9 +14,8 @@ private:
     // methods
     void sortRoutine(const ArraySize_t a_uFirstElementIndex, const ArraySize_t a_uLastElementIndex);
     void sortCurrentArray(const ISortingAlgorithm::ArraySize_t a_uFirstElementIndex, const ArraySize_t a_uLastElementIndex, const ArraySize_t a_uLeftSubarrayLastIndex, const ArraySize_t a_uRightSubarrayFirstIndex);
-    void copyTempToOriginalArray(const ArraySize_t a_uFirstElementIndex, const ArraySize_t a_uLastElementIndex);
     // members
-    SortingElement_t* m_auTempArray;
+    ArrayElement_t* m_auTempArray;
 };
 
 #endif // CMERGESORT_H

@@ -12,19 +12,19 @@ int main()
     const ISortingAlgorithm::ArraySize_t uArraySize = 100000u;
     CBubbleSort oBubbleSort;
     oBubbleSort.createReversedArray(uArraySize);
-    oBubbleSort.getSortingTime();
+    //oBubbleSort.getSortingTime();
 
     CInsertionSort oInsertionSort;
     oInsertionSort.createReversedArray(uArraySize);
-    oInsertionSort.getSortingTime();
+    //oInsertionSort.getSortingTime();
 
     CSelectionSort oSelectionSort;
     oSelectionSort.createReversedArray(uArraySize);
-    oSelectionSort.getSortingTime();
+    //oSelectionSort.getSortingTime();
 
     CCountingSort oCountingSort;
     oCountingSort.createReversedArray(uArraySize);
-    oCountingSort.getSortingTime();
+    //oCountingSort.getSortingTime();
 
     CMergeSort oMergeSort;
     oMergeSort.createReversedArray(uArraySize);

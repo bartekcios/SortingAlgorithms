@@ -4,22 +4,19 @@
 
 using namespace std;
 
-CCountingSort::CCountingSort()
-{
-    m_szAlgorithmName = __func__;
-}
+CCountingSort::CCountingSort():
+    ISortingAlgorithm(__func__)
+{}
 
 CCountingSort::~CCountingSort()
-{
-
-}
+{}
 
 void CCountingSort::sort()
 {
     if(nullptr != m_auArray)
     {
         // get max value
-        SortingElement_t uMaxValue = m_auArray[0u];
+        ArrayElement_t uMaxValue = m_auArray[0u];
         for(ArraySize_t uIterator=0u; uIterator<m_uArraySize; ++uIterator)
         {
             if(uMaxValue<m_auArray[uIterator])
@@ -29,11 +26,11 @@ void CCountingSort::sort()
         }
 
         ++uMaxValue;
-        SortingElement_t* auCountingArray = new SortingElement_t[uMaxValue];  // MaxVal + zero
+        ArrayElement_t* auCountingArray = new ArrayElement_t[uMaxValue];  // MaxVal + zero
 
         if(nullptr != auCountingArray)
         {
-            memset(auCountingArray, 0u, sizeof(SortingElement_t)*uMaxValue);
+            memset(auCountingArray, 0u, sizeof(ArrayElement_t)*uMaxValue);
             // fill in counting array
             for(ArraySize_t uIterator=0u; uIterator<m_uArraySize; ++uIterator)
             {

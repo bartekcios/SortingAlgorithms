@@ -1,14 +1,11 @@
 #include "cinsertionsort.h"
 
-CInsertionSort::CInsertionSort()
-{
-    m_szAlgorithmName = __func__;
-}
+CInsertionSort::CInsertionSort():
+    ISortingAlgorithm(__func__)
+{}
 
 CInsertionSort::~CInsertionSort()
-{
-
-}
+{}
 
 void CInsertionSort::sort()
 {

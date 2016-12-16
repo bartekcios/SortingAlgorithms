@@ -1,14 +1,11 @@
 #include "cselectionsort.h"
 
-CSelectionSort::CSelectionSort()
-{
-    m_szAlgorithmName = __func__;
-}
+CSelectionSort::CSelectionSort():
+    ISortingAlgorithm(__func__)
+{}
 
 CSelectionSort::~CSelectionSort()
-{
-
-}
+{}
 
 void CSelectionSort::sort()
 {
@@ -17,7 +14,7 @@ void CSelectionSort::sort()
         for(ArraySize_t uIteratorUnsorted=0u; uIteratorUnsorted<m_uArraySize; ++uIteratorUnsorted)
         {
             //find min
-            SortingElement_t uMin = m_auArray[uIteratorUnsorted];
+            ArrayElement_t uMin = m_auArray[uIteratorUnsorted];
             ArraySize_t uMinIndex=uIteratorUnsorted;
             for(ArraySize_t uIteratorMinIndex=uIteratorUnsorted; uIteratorMinIndex<m_uArraySize; ++uIteratorMinIndex)
             {
@@ -27,7 +24,7 @@ void CSelectionSort::sort()
                     uMinIndex = uIteratorMinIndex;
                 }
             }
-            SortingElement_t uTemp = m_auArray[uIteratorUnsorted];
+            ArrayElement_t uTemp = m_auArray[uIteratorUnsorted];
             m_auArray[uIteratorUnsorted] = m_auArray[uMinIndex];
             m_auArray[uMinIndex] = uTemp;
         }
